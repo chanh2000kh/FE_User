@@ -183,7 +183,7 @@ export default function Billdetail(props) {
                 <p>Địa chỉ giao hàng:  {billdetail.diaChiGiaoHang}</p>
                 <p>Số điện thoại người nhận: {billdetail.sdtNguoiNhan} </p>
                 <p>Đã thanh toán: {billdetail.daThanhToan == true ? <>xong</> : <>chưa</>} </p>
-                <p>Trạng thái đơn hàng: {row.trangThaiGiaoHangId == "1" && <>Chờ xác nhận</>} {row.trangThaiGiaoHangId == "3" && <>Đang giao</>} {row.trangThaiGiaoHangId == "4" && <>Đã nhận</>} {row.trangThaiGiaoHangId == "5" && <>Đã hủy</>} </p>
+                <p>Trạng thái đơn hàng:  {billdetail.trangThaiGiaoHangId == "1" && <>Chờ xác nhận</>} {billdetail.trangThaiGiaoHangId == "3" && <>Đang giao</>} {billdetail.trangThaiGiaoHangId == "4" && <>Đã nhận</>} {billdetail.trangThaiGiaoHangId == "5" && <>Đã hủy</>} </p>
                 <p>Ngày đặt hàng: {day}</p>
                 <p style={{ color: "red" }}>Tổng tiền: {price}  <sup>₫</sup></p>
 
