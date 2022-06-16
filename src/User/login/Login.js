@@ -32,7 +32,7 @@ export default function Login() {
 				.then((res) => {
 					localStorage.setItem("accessToken", res.data.data)
 					setOpenSuccess(true)
-					setTimeout(window.location.replace('http://localhost:3000/'), 3000);	
+					setTimeout(window.location.replace('https://fe-user-livid.vercel.app/'), 3000);	
 				})
 				.catch((err) => {
 					setOpenError(true)
@@ -122,13 +122,13 @@ export default function Login() {
 
 							<div class="text-center p-t-12">
 
-								<a class="txt2" href='http://localhost:3000/sendgmailresetpassword'>
+								<a class="txt2" href='https://fe-user-livid.vercel.app/sendgmailresetpassword'>
 									Quên Mật khẩu?
 								</a>
 							</div>
 
 							<div class="text-center p-t-136">
-								<a class="txt2" href='http://localhost:3000/register'>
+								<a class="txt2" href='https://fe-user-livid.vercel.app/register'>
 									Tạo tài khoản của bạn
 
 								</a>

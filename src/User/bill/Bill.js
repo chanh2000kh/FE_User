@@ -188,7 +188,7 @@ export default function Bill() {
             hoaDonId: id,
             bankCode: "",
             vnpLocale: "",
-            vnp_Returnurl: "http://localhost:3000/confirmpay"
+            vnp_Returnurl: "https://fe-user-livid.vercel.app/confirmpay"
         }
         callApi(`api/HoaDon/ThanhToanVNPayTheoHoaDon`, "POST", data)
             .then((res) => {

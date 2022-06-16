@@ -97,12 +97,12 @@ export default function Productdetail() {
             soLuong: sl,
         }
         if (localStorage.getItem("vaiTroId") == "") {
-            window.location.replace('http://localhost:3000/login')
+            window.location.replace('https://fe-user-livid.vercel.app/login')
         } else {
             if (sl > 0)
                 callApi(`api/GioHang/themspvaogiohang`, "POST", data)
                     .then((res) => {
-                        window.location.replace('http://localhost:3000/cartuser')
+                        window.location.replace('https://fe-user-livid.vercel.app/cartuser')
                     })
                     .catch((err) => {
                         console.log(err);
@@ -239,7 +239,7 @@ export default function Productdetail() {
                                 if (a < 4) return (
 
                                     <div style={{ cursor: "pointer", minHeight: "300px" }} class="grid_1_of_4 images_1_of_4">
-                                        <a ><img onClick={() => { window.location.replace('http://localhost:3000/productdetail?id=' + data.sanPhamId) }} width="100px" height="100px" src={data.hinhAnh} alt="" /></a>
+                                        <a ><img onClick={() => { window.location.replace('https://fe-user-livid.vercel.app/productdetail?id=' + data.sanPhamId) }} width="100px" height="100px" src={data.hinhAnh} alt="" /></a>
                                         <div class="price-details">
                                             <div class="price-number">
 

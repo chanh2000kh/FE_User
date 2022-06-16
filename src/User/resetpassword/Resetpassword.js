@@ -43,7 +43,7 @@ export default function Resetpassword() {
 				setLoiNhan('Đổi mật khẩu thành công!')
                 setOpenSuccess(true)
 				localStorage.setItem("accessToken", "")
-				setTimeout(window.location.replace('http://localhost:3000/login'), 3000);
+				setTimeout(window.location.replace('https://fe-user-livid.vercel.app/login'), 3000);
 			})
 			.catch((err) => {
 				setLoiNhan('Đổi mật khẩu không thành công!')

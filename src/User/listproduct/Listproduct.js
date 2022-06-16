@@ -151,7 +151,7 @@ export default function Listproduct() {
                     {listSanPham.length == 0 ? <div> Không tìm thấy sản phẩm </div> :
                         listSanPham.map((data, index) => {
                             return (
-                                <div onClick={() => { window.location.replace('http://localhost:3000/productdetail?id=' + data.sanPhamId) }} style={{ marginLeft: "25px", minHeight: "300px" }} class="grid_1_of_4 images_1_of_4">
+                                <div onClick={() => { window.location.replace('https://fe-user-livid.vercel.app/productdetail?id=' + data.sanPhamId) }} style={{ marginLeft: "25px", minHeight: "300px" }} class="grid_1_of_4 images_1_of_4">
                                     <a ><img src={data.hinhAnh} alt="" width="100%" height="175" /></a>
                                     <br />
                                     <p style={{ height: "50px", }}> {data.tenSP}</p>

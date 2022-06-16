@@ -21,13 +21,13 @@ export default function Sendgmailresetpassword() {
 	const sentEmail = ()=>{
 		const data = {
 			email: email,
-			url: 'http://localhost:3000/resetpassword'
+			url: 'https://fe-user-livid.vercel.app/resetpassword'
 		}
 		callApi(`api/Users/sendEmailResetPassword`, "POST", data)
 				.then((res) => {	
 					setLoiNhan('Gửi yêu cầu thành công, vui lòng kiểm trả email !')
                 	setOpenSuccess(true)									
-					// setTimeout(window.location.replace('http://localhost:3000/'), 3000);	
+					// setTimeout(window.location.replace('https://fe-user-livid.vercel.app/'), 3000);	
 				})
 				.catch((err) => {
 					setLoiNhan('Gửi mã thất bại!')

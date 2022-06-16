@@ -57,7 +57,7 @@ export default function ConfirmPay() {
                         {/* This is a success alert — <strong>check it out!</strong> */}
                         <h1 style={{ margin: "auto", color: "black" }}>Xác nhận thanh toán thành công!</h1>
                         <Stack style={{ marginTop: "10px" }} direction="row" spacing={2}>
-                            <Button onClick={()=>window.location.replace('http://localhost:3000')}style={{ margin: "auto", marginBottom: "10px" }} variant="contained">Tiếp tục mua sắm</Button>
+                            <Button onClick={()=>window.location.replace('https://fe-user-livid.vercel.app')}style={{ margin: "auto", marginBottom: "10px" }} variant="contained">Tiếp tục mua sắm</Button>
                         </Stack>
                     </Alert>
                 </div>

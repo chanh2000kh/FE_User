@@ -41,7 +41,7 @@ export default function Register() {
             .then((res) => {
                 setLoiNhan('Đăng ký thành công !')
                 setOpenSuccess(true)
-                setTimeout(window.location.replace('http://localhost:3000/login'), 3000);
+                setTimeout(window.location.replace('https://fe-user-livid.vercel.app/login'), 3000);
             })
             .catch((err) => {
                 setLoiNhan('Đăng ký không thành công !')
@@ -111,7 +111,7 @@ export default function Register() {
                                 {/* <Button variant="contained" disabled>
                                     Disabled
                                 </Button> */}
-                                <Button style={{ margin: "auto", marginBottom: "10px" }} onClick={() => window.location.replace('http://localhost:3000/login')} variant="contained">
+                                <Button style={{ margin: "auto", marginBottom: "10px" }} onClick={() => window.location.replace('https://fe-user-livid.vercel.app/login')} variant="contained">
                                     Đăng nhập
                                 </Button>
                             </Stack>

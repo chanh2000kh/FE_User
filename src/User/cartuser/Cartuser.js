@@ -254,7 +254,7 @@ export default function Cartuser() {
             sdtNguoiNhan: numberPhone,
             bankCode: "",
             vnpLocale: "",
-            vnp_Returnurl: "http://localhost:3000/confirmpay",
+            vnp_Returnurl: "https://fe-user-livid.vercel.app/confirmpay",
             maGiamGiaId: maGiamGia
         }
         callApi(`api/HoaDon/ThanhToanVNPay`, "POST", data)
@@ -380,7 +380,7 @@ export default function Cartuser() {
 
                             return (<div class="product">
 
-                                <img onClick={() => { window.location.replace('http://localhost:3000/productdetail?id=' + data.sanPhamId) }} style={{ width: "200px" }} src={data.hinhAnh} />
+                                <img onClick={() => { window.location.replace('https://fe-user-livid.vercel.app/productdetail?id=' + data.sanPhamId) }} style={{ width: "200px" }} src={data.hinhAnh} />
 
                                 <div class="product-info">
 

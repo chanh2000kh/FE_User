@@ -95,7 +95,7 @@ export default function Home() {
                             <div class="content">
                                 <p>Liên hệ chúng tôi để tìm được sản phẩm mà bạn thích</p>
                                 <ul class="actions">
-                                    <li><a href='http://localhost:3000/contact' class="button next scrolly"> Liên hệ </a></li>
+                                    <li><a href='https://fe-user-livid.vercel.app/contact' class="button next scrolly"> Liên hệ </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ export default function Home() {
                                 listSanPhamBanChay.map((data) => {
                                     return (
 
-                                        <article onClick={() => { window.location.replace('http://localhost:3000/productdetail?id=' + data.sanPhamId) }} style={{ border: "2px solid black" }}>
+                                        <article onClick={() => { window.location.replace('https://fe-user-livid.vercel.app/productdetail?id=' + data.sanPhamId) }} style={{ border: "2px solid black" }}>
                                             <a class="image">
                                                 <a style={{ cursor: "pointer" }}><img src={data.hinhAnh} width="370px" height="300px" alt="" /></a>
                                                 <a ><h5>{data.tenSP} (đã bán {data.soLuongDaBan})</h5></a>                                              
@@ -173,7 +173,7 @@ export default function Home() {
                                         listSanPhamBanChay.map((data, a) => {
                                             if(a < 8)
                                             return (
-                                                <Card onClick={() => { window.location.replace('http://localhost:3000/productdetail?id=' + data.sanPhamId) }} sx={{ maxWidth: 287 }} >
+                                                <Card onClick={() => { window.location.replace('https://fe-user-livid.vercel.app/productdetail?id=' + data.sanPhamId) }} sx={{ maxWidth: 287 }} >
                                                     <CardMedia
                                                         elevation={3}
                                                         component="img"
@@ -198,7 +198,7 @@ export default function Home() {
                                     {
                                         listSanPhamThem.map((data, a) => {                                         
                                             return (
-                                                <Card onClick={() => { window.location.replace('http://localhost:3000/productdetail?id=' + data.sanPhamId) }} sx={{ maxWidth: 287 }} >
+                                                <Card onClick={() => { window.location.replace('https://fe-user-livid.vercel.app/productdetail?id=' + data.sanPhamId) }} sx={{ maxWidth: 287 }} >
                                                     <CardMedia
                                                         elevation={3}
                                                         component="img"
@@ -241,7 +241,7 @@ export default function Home() {
                                     ✪ Quy trình bán hàng trên LT Shop đơn giản, thuận tiện
                                 </p>
                                 <ul class="actions">
-                                    <li><a href='http://localhost:3000/aboutus' class="button next">Read more</a></li>
+                                    <li><a href='https://fe-user-livid.vercel.app/aboutus' class="button next">Read more</a></li>
                                 </ul>
                             </div>
                         </section>
