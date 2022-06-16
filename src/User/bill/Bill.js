@@ -57,6 +57,7 @@ export default function Bill() {
     const [open, setOpen] = React.useState(false);
     const [status, setStatus] = React.useState(0);
     const [hoaDonId, setHoaDonId] = React.useState('');
+    const [hoaDonStatus, setHoaDonStatus] = React.useState('');
 
     //---------------------------
     const [openSuccess, setOpenSuccess] = React.useState(false);
@@ -80,8 +81,9 @@ export default function Bill() {
     };
     //--------------------------------------
 
-    const handleClickOpen = (id) => {
+    const handleClickOpen = (id, status) => {
         setHoaDonId(id)
+        setHoaDonStatus(status)
         setOpen(true);
     };
 
@@ -260,7 +262,7 @@ export default function Bill() {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <Billdetail id={hoaDonId} status={status} />
+                <Billdetail id={hoaDonId} status={hoaDonStatus} />
             </Dialog>
 
             <div style={{ margin: "auto", textAlign: "center" }} class="container">
@@ -327,14 +329,7 @@ export default function Bill() {
                                                 <td> {row.sdtNguoiNhan}</td>
                                                 <td style={{ width: "300px" }}> {row.diaChiGiaoHang}</td>
                                                 <td> {row.trangThaiGiaoHangId == "1" && <>Chờ xác nhận</>} {row.trangThaiGiaoHangId == "3" && <>Đang giao</>} {row.trangThaiGiaoHangId == "4" && <>Đã nhận</>} {row.trangThaiGiaoHangId == "5" && <>Đã hủy</>}</td>
-                                                {/* <td>
-
-                                                    {
-                                                        row.thanhToanOnline == true ?  <>Online</> :  <>Trực tiếp</>                                               
-                                                    }
-
-                                                </td> */}
-                                                <td> <svg onClick={() => handleClickOpen(row.hoaDonId)} style={{ color: "#007bff", height: "40px" }} aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg> </td>
+                                                <td> <svg onClick={() => handleClickOpen(row.hoaDonId, row.trangThaiGiaoHangId)} style={{ color: "#007bff", height: "40px" }} aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path></svg> </td>
                                                 <td> {(row.trangThaiGiaoHangId == "1" && localStorage.getItem("vaiTroId") == "3") &&
                                                     <svg onClick={() => cancelBill(row.hoaDonId)} style={{ color: "red", height: "30px" }} aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" class="svg-inline--fa fa-trash-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg>
                                                 }

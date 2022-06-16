@@ -244,8 +244,7 @@ export default function Productdetail() {
                                             <div class="price-number">
 
                                                 <h5><span style={{ fontSize: "15px", color: "black" }}> {data.tenSP.slice(0, 20)}...</span></h5>
-                                                <h5><span style={{ color: "red" }} class="rupees"> Price : {format2(data.giaTien)} VNĐ </span></h5>
-
+                                                <p style={{ color: "red" }}>Giá: {format1(data.giaTien)}<sup>₫</sup></p>
                                             </div>
 
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let API_URL="https://localhost:5001";
+let API_URL="https://webbanhangapitienlam.azurewebsites.net";
 
 export default function callApi(endpoint, method='GET',body){
     return axios({

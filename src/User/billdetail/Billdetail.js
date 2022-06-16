@@ -61,6 +61,13 @@ export default function Billdetail(props) {
     const [listSP, setListSP] = React.useState([]);
     const [price, setPrice] = React.useState();
     const [soSP, setSoSp] = React.useState(1);
+
+    const [expanded, setExpanded] = React.useState(false);
+    const [value, setValue] = React.useState(5);
+    const [binhLuan, setBinhLuan] = React.useState('');
+    
+    const [danhGiaThanhCong, setDanhGiaThanhCong] = React.useState(false);
+
     function format1(n) {
         return n.toFixed(0).replace(/./g, function (c, i, a) {
             return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
@@ -69,23 +76,23 @@ export default function Billdetail(props) {
     useEffect(() => {
         callApi(`api/HoaDon/xemchitiethoadon/` + props.id, "GET")
             .then((res) => {
+                setExpanded(false)          
                 setBilldetail(res.data.data[0])
                 setDay(new Date(res.data.data[0].ngayXuatDon).toISOString().split('T')[0])
                 setListSP(res.data.data[0].chiTietHD)
                 setPrice(format1(res.data.data[0].tongHoaDon))
+                setBinhLuan('')
             })
             .catch((err) => {
                 console.log(err);
             });
-    }, [props.id]);
+    }, [props.id, danhGiaThanhCong]);
 
     // useEffect(() => {
     //     setSoSp(listSP.length)
     // }, [listSP]);
 
-    const [expanded, setExpanded] = React.useState(false);
-    const [value, setValue] = React.useState(2);
-    const [binhLuan, setBinhLuan] = React.useState('');
+    
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
@@ -100,7 +107,10 @@ export default function Billdetail(props) {
         callApi(`api/SanPham/danhgiaSP`, "POST", data)
             .then((res) => {
                 window.alert('Đánh giá thành công!')
+                setBinhLuan('')
+                setValue(5)
                 setExpanded(false)
+                setDanhGiaThanhCong(!danhGiaThanhCong)
             })
             .catch((err) => {
                 window.alert('Đánh giá thất bại!')
@@ -128,7 +138,7 @@ export default function Billdetail(props) {
 
 
                                             <p style={{ color: "red", marginBottom: "5px", display: "flex", alignItems: "center" }} class="product-billdetil-offer">Giá: {format1(data.giaTien)} ₫
-                                                {props.status == "4" ?
+                                                {(props.status == "4") && (data.trangThaiDanhGia == 0) ?
                                                     <ExpandMore
                                                         expand={expanded}
                                                         onClick={handleExpandClick}
@@ -140,6 +150,7 @@ export default function Billdetail(props) {
                                                     :
                                                     <></>
                                                 }
+                                               
                                             </p>
 
                                             <Collapse style={{ borderTop: "2px ridge #b1154a" }} in={expanded} timeout="auto" unmountOnExit>
