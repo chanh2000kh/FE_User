@@ -42,8 +42,9 @@ export default function Login() {
 				});
 		}
 		else
-		{
+		{			
 			setLoiNhan('Bạn chưa nhập đủ thông tin')
+			setOpenError(true)
 		}
 	}
 	
