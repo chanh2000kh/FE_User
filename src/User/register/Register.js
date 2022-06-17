@@ -37,7 +37,14 @@ export default function Register() {
             xacNhanMatKhau: xacNhanMatKhau
         }
         console.log(data)
-        callApi(`api/Users/dangky`, "POST", data)
+        if(xacNhanMatKhau.length < 8)
+        {
+            setLoiNhan('Mật khẩu bắt buộc, tối thiểu 8 ký tự!')
+            setOpenError(true)
+        }
+        else
+        {
+            callApi(`api/Users/dangky`, "POST", data)
             .then((res) => {
                 setLoiNhan('Đăng ký thành công !')
                 setOpenSuccess(true)
@@ -48,7 +55,7 @@ export default function Register() {
                 setOpenError(true)
                 console.log(err);
             });
-
+        }
     }
     return (
         <div style={{ display: "block" }} class="limiter ">
