@@ -37,24 +37,30 @@ export default function Register() {
             xacNhanMatKhau: xacNhanMatKhau
         }
         console.log(data)
-        if(xacNhanMatKhau.length < 8)
-        {
+        if (xacNhanMatKhau.length < 8) {
             setLoiNhan('Mật khẩu bắt buộc, tối thiểu 8 ký tự!')
             setOpenError(true)
         }
-        else
-        {
+        else if (email == "" && tenDangNhap == "" && tenNguoiDung == "" && diaChi == "" && sDT == "" && matKhau == "" && xacNhanMatKhau == "") {
+            setLoiNhan('Vui lòng nhập đầy đủ thông tin!')
+            setOpenError(true)
+        }
+        else if (xacNhanMatKhau != matKhau) {
+            setLoiNhan('Xác thực mật khẩu phải giống mật khẩu!')
+            setOpenError(true)
+        }
+        else {
             callApi(`api/Users/dangky`, "POST", data)
-            .then((res) => {
-                setLoiNhan('Đăng ký thành công !')
-                setOpenSuccess(true)
-                setTimeout(window.location.replace('https://fe-user-livid.vercel.app/login'), 3000);
-            })
-            .catch((err) => {
-                setLoiNhan('Đăng ký không thành công !')
-                setOpenError(true)
-                console.log(err);
-            });
+                .then((res) => {
+                    setLoiNhan('Đăng ký thành công !')
+                    setOpenSuccess(true)
+                    setTimeout(window.location.replace('https://fe-user-livid.vercel.app/login'), 3000);
+                })
+                .catch((err) => {
+                    setLoiNhan('Đăng ký không thành công !')
+                    setOpenError(true)
+                    console.log(err);
+                });
         }
     }
     return (
