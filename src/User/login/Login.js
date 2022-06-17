@@ -13,7 +13,7 @@ import Collapse from '@mui/material/Collapse';
 export default function Login() {
 	const [tenDangNhap, setTenDangNhap] = useState('');
 	const [matKhau, setMatKhau] = useState('');
-
+	const [loiNhan, setLoiNhan] = useState('');
 	//---------------------------
 	const [openSuccess, setOpenSuccess] = React.useState(false);
 	const [openError, setOpenError] = React.useState(false);
@@ -31,13 +31,19 @@ export default function Login() {
 			callApi(`api/Users/dangnhap`, "POST", data)
 				.then((res) => {
 					localStorage.setItem("accessToken", res.data.data)
+					setLoiNhan('Đăng nhập thành công!')
 					setOpenSuccess(true)
-					setTimeout(window.location.replace('https://fe-user-livid.vercel.app/'), 3000);	
+					setTimeout(window.location.replace('https://fe-user-livid.vercel.app/'), 4000);	
 				})
 				.catch((err) => {
+					setLoiNhan('Sai tên đăng nhập hoặc mật khẩu!')
 					setOpenError(true)
 					console.log(err);
 				});
+		}
+		else
+		{
+			setLoiNhan('Bạn chưa nhập đủ thông tin')
 		}
 	}
 	
@@ -64,7 +70,7 @@ export default function Login() {
 								}
 								sx={{ mb: 2 }}>
 								<AlertTitle>Error</AlertTitle>
-								Đăng nhập thất bại, vui lòng thử lại!
+								{loiNhan}
 							</Alert>
 						</Collapse>
 						<Collapse in={openSuccess}>
@@ -83,7 +89,7 @@ export default function Login() {
 								}
 								sx={{ mb: 2 }}>
 								<AlertTitle>Success</AlertTitle>
-								Đăng nhập thành công!
+								{loiNhan}
 							</Alert>
 						</Collapse>
 					</Stack>
