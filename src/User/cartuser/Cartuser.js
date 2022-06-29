@@ -396,7 +396,7 @@ export default function Cartuser() {
                                     {/* <h4 style={{ color: "red" }} class="product-price">Giá:   
                                         <del >{format2(data.giaTien * data.soLuongTrongGio)} VNĐ </del></h4> */}
                                     <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                       <span style={{textDecoration:"line-through", color: "#9e9e9e" }} >{format2(data.giaTien * data.soLuongTrongGio)} </span>  <span style={{textDecoration:"line-through", color: "red" }}>{tinhGiaMoi(data.giaTien * data.soLuongTrongGio, data.giamGia)} </span> <sup>₫</sup>
+                                       <span style={{textDecoration:"line-through", color: "#9e9e9e" }} >{format2(data.giaTien * data.soLuongTrongGio)} </span>  <span style={{color: "red" }}>{tinhGiaMoi(data.giaTien * data.soLuongTrongGio, data.giamGia)} <sup>₫</sup> </span> 
                                     </Typography>
 
                                     <h4 style={{ color: "red" }} class="product-offer">Giảm giá: {data.giamGia}%</h4>
