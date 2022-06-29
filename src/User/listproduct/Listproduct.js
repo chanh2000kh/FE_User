@@ -165,7 +165,7 @@ export default function Listproduct() {
                                                 <p style={{ textAlign: "left" }}><span style={{color: "#9e9e9e", textDecoration: "line-through" }}> {format1(data.giaTien)}</span> <span style={{ color: "red" }}>{tinhGiaMoi(data.giaTien, data.giamGia)} <sup>₫</sup> </span>
                                                 </p>
                                                 :
-                                                <p style={{ textAlign: "left", color: "red" }}>{format1(data.giaTien)} <sup>₫</sup>
+                                                <p style={{ textAlign: "left", color: "red" }}><span>{format1(data.giaTien)}</span> <sup>₫</sup>
                                                 </p>
                                             }
                                             <br />
