@@ -161,7 +161,7 @@ export default function Listproduct() {
                                     <div class="price-details">
 
                                         <div class="price-number">
-                                            {data.giam > 0 ?
+                                            {data.giamGia > 0 ?
                                                 <p style={{ textAlign: "left" }}><span style={{color: "#9e9e9e", textDecoration: "line-through" }}> {format1(data.giaTien)}</span> <span style={{ color: "red" }}>{tinhGiaMoi(data.giaTien, data.giamGia)} <sup>₫</sup> </span>
                                                 </p>
                                                 :
