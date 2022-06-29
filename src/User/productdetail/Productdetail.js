@@ -184,7 +184,7 @@ export default function Productdetail() {
                             <Rating name="read-only" value={danhGiaTrungBinh} readOnly />
                             <p style={{ fontSize: "15px" }}> Số lượng còn lại: {productDetail.soLuongConLai}</p>
                             <div class="price">
-                                <p style={{ fontSize: "15px" }}>Giá : <span style={{ fontSize: "35px" }} >{price} <sup>₫</sup> </span> </p>
+                                <p style={{ fontSize: "15px" }}>Giá : <span style={{ fontSize: "35px", textDecoration:"line-through" }} >{price} <sup>₫</sup> </span> </p>
                                 <p style={{ fontSize: "15px" }}>Số lượng: <span> <br />
 
                                     <div>
