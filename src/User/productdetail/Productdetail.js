@@ -39,6 +39,10 @@ export default function Productdetail() {
     const [sl, setSL] = useState(0)
     const [idLoai, setIDLoai] = useState('')
     const [price, setPrice] = useState(0)
+    const [priceNew, setPriceNew] = useState(0)
+    const tinhGiaMoi =(gia, giamgia)=>{
+        setPriceNew(gia - gia*(giamgia/100))
+    }
     const [listDanhGia, setListDanhGia] = useState([])
     const [danhGiaTrungBinh, setDanhGiaTrungBinh] = useState(0)
     useEffect(() => {
@@ -49,6 +53,7 @@ export default function Productdetail() {
                 setDanhGiaTrungBinh(res.data.data.danhGiaTrungBinh)
                 setIDLoai(res.data.data.loaiSanPhamId)
                 setPrice(format1(res.data.data.giaTien))
+                tinhGiaMoi(res.data.data.giaTien, res.data.data.giamGia)
             })
             .catch((err) => {
                 console.log(err);
@@ -184,7 +189,7 @@ export default function Productdetail() {
                             <Rating name="read-only" value={danhGiaTrungBinh} readOnly />
                             <p style={{ fontSize: "15px" }}> Số lượng còn lại: {productDetail.soLuongConLai}</p>
                             <div class="price">
-                                <p style={{ fontSize: "15px" }}>Giá : <span style={{ fontSize: "35px", textDecoration:"line-through" }} >{price} <sup>₫</sup> </span> </p>
+                                <p style={{ fontSize: "15px" }}>Giá : <span style={{ fontSize: "35px", textDecoration:"line-through" }} >{price} </span> <span style={{ fontSize: "35px"}} >{priceNew} </span>  <sup>₫</sup> </p>
                                 <p style={{ fontSize: "15px" }}>Số lượng: <span> <br />
 
                                     <div>
