@@ -28,7 +28,7 @@ export default function Listproduct() {
     const [rowsPerPage, setRowsPerPage] = React.useState(8);
     const [sumPage, setSumPage] = React.useState(1);
     const [typeGet, setTypeGet] = React.useState(1);
-    
+
     const [tuTimKiem, setTuTimKiem] = useState('');
 
     const [idType, setIdType] = useState('');
@@ -65,8 +65,8 @@ export default function Listproduct() {
                     console.log(err);
                 });
         if (typeGet == 2) {
-            
-            callApi(`api/SanPham/timkiemsanphamtheoten/` + tuTimKiem+`/${page}/8`, "GET")
+
+            callApi(`api/SanPham/timkiemsanphamtheoten/` + tuTimKiem + `/${page}/8`, "GET")
                 .then((res) => {
                     setListSanPham(res.data.data.danhSachSanPham)
                     setSumPage(res.data.data.tongSoTrang)
@@ -75,16 +75,15 @@ export default function Listproduct() {
                     console.log(err);
                 });
         }
-        if (typeGet == 3) 
-        {
+        if (typeGet == 3) {
             callApi(`api/SanPham/laysptheoLoaisanpham/` + idType + `/${page}/8`, "GET")
-            .then((res) => {
-                setListSanPham(res.data.data.danhSachSanPham)
-                setSumPage(res.data.data.tongSoTrang)
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                .then((res) => {
+                    setListSanPham(res.data.data.danhSachSanPham)
+                    setSumPage(res.data.data.tongSoTrang)
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
         }
     }, [page, typeGet, idType]);
 
@@ -93,14 +92,14 @@ export default function Listproduct() {
         setTypeGet(3)
         setPage(1)
     }
-    
+
     const timKiemSP = () => {
         localStorage.setItem("tuMuonTim", tuTimKiem)
         setPage(1)
         setTypeGet(2)
     }
-    const tinhGiaMoi =(gia, giamgia)=>{
-        return format1(gia - gia*(giamgia/100))
+    const tinhGiaMoi = (gia, giamgia) => {
+        return format1(gia - gia * (giamgia / 100))
     }
     return (
         <div style={{ width: "80%", margin: "auto", minHeight: "645px" }} class="content-listproduct">
@@ -161,18 +160,18 @@ export default function Listproduct() {
 
                                     <div class="price-details">
 
-                                        <div class="price-number"> 
-                                        {data.giam > 0 ? 
-                                        <p style={{ textAlign: "left", color: "#9e9e9e", textDecoration:"line-through" }}>{format1(data.giaTien)} <span style={{color: "red" }}>{tinhGiaMoi(data.giaTien, data.giamGia)} <sup>₫</sup> </span>                                                                    
-                                        </p>
-                                        :
-                                        <p style={{ textAlign: "left", color: "red"}}>{format1(data.giaTien)} <sup>₫</sup>                                                                   
-                                        </p>
-                                        }                                         
-                                             <br />
+                                        <div class="price-number">
+                                            {data.giam > 0 ?
+                                                <p style={{ textAlign: "left" }}><span style={{color: "#9e9e9e", textDecoration: "line-through" }}> {format1(data.giaTien)}</span> <span style={{ color: "red" }}>{tinhGiaMoi(data.giaTien, data.giamGia)} <sup>₫</sup> </span>
+                                                </p>
+                                                :
+                                                <p style={{ textAlign: "left", color: "red" }}>{format1(data.giaTien)} <sup>₫</sup>
+                                                </p>
+                                            }
+                                            <br />
                                             <Rating name="read-only" value={data.danhGiaTrungBinh} readOnly />
-                                        </div>                                        
-                                        <div class="clear">                                      
+                                        </div>
+                                        <div class="clear">
                                         </div>
                                     </div>
                                 </div>
