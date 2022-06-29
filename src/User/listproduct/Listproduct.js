@@ -99,6 +99,9 @@ export default function Listproduct() {
         setPage(1)
         setTypeGet(2)
     }
+    const tinhGiaMoi =(gia, giamgia)=>{
+        return format1(gia - gia*(giamgia/100))
+    }
     return (
         <div style={{ width: "80%", margin: "auto", minHeight: "645px" }} class="content-listproduct">
             <div class="content_top">
@@ -158,9 +161,15 @@ export default function Listproduct() {
 
                                     <div class="price-details">
 
-                                        <div class="price-number">                                           
-                                            <p style={{ textAlign: "left", color: "red" }}>{format1(data.giaTien)} <sup>₫</sup>                                               
-                                            </p> <br />
+                                        <div class="price-number"> 
+                                        {data.giam > 0 ? 
+                                        <p style={{ textAlign: "left", color: "#9e9e9e", textDecoration:"line-through" }}>{format1(data.giaTien)} <span style={{color: "red" }}>{tinhGiaMoi(data.giaTien, data.giamGia)} <sup>₫</sup> </span>                                                                    
+                                        </p>
+                                        :
+                                        <p style={{ textAlign: "left", color: "red"}}>{format1(data.giaTien)} <sup>₫</sup>                                                                   
+                                        </p>
+                                        }                                         
+                                             <br />
                                             <Rating name="read-only" value={data.danhGiaTrungBinh} readOnly />
                                         </div>                                        
                                         <div class="clear">                                      
