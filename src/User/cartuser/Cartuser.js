@@ -461,7 +461,7 @@ export default function Cartuser() {
                         <Button onClick={handleClickOpen} style={{ height: "px" }} variant="contained">Thêm Mã</Button>
                     </Stack>
                     <TextField onChange={(event) => setAddress(event.target.value)} style={{ width: "100%", marginTop: "10px" }} value={address} type="text" id="outlined-basic" label="Address" variant="outlined" />
-                    <TextField onChange={(event) => setNumberPhone(event.target.value)} style={{ width: "100%", marginTop: "10px" }} value={numberPhone} type="phone" id="outlined-basic" label="Phone" variant="outlined" />
+                    <TextField onChange={(event) => setNumberPhone(event.target.value)} style={{ width: "100%", marginTop: "10px" }} value={numberPhone} type="number" id="outlined-basic" label="Phone" variant="outlined" />
                     <Stack style={{ marginTop: "10px" }} direction="row" spacing={2}>
 
                         <Button onClick={payMent} style={{ width: "100%" }} variant="contained">Thanh toán khi nhận hàng</Button>
